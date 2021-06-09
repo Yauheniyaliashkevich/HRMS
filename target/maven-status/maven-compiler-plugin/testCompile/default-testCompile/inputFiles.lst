@@ -1,0 +1,16 @@
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/pages/EmployeeListPage.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/steps/EmployeeSearchSteps.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/steps/Hooks.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/utils/ConfigReader.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/utils/Constants.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/runners/RegressionRunner.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/utils/ExcelReading.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/pages/DashBoardPage.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/steps/AddEmployeeSteps.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/steps/DashboardSteps.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/steps/LoginSteps.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/pages/LoginPage.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/utils/CommonMethods.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/runners/FailedRunner.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/pages/AddEmployeePage.java
+/Users/yauheniyaliashkevich/IdeaProjects/HRMS/src/test/java/runners/SmokeRunner.java
