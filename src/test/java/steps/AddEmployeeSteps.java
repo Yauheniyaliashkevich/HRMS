@@ -17,40 +17,34 @@ import java.util.Map;
 public class AddEmployeeSteps extends CommonMethods {
     @When("user click on PIM option")
     public void user_click_on_pim_option() {
-        DashBoardPage dash = new DashBoardPage();
-        click(dash.pimOption);
+        click(dashBoardPage.pimOption);
     }
     @When("user click on Add employee button")
     public void user_click_on_add_employee_button() {
-        DashBoardPage dash = new DashBoardPage();
-        click(dash.addEmployeeButton);
+        click(dashBoardPage.addEmployeeButton);
     }
     @When("user enters firstname middlename and lastname")
     public void user_enters_firstname_middlename_and_lastname() {
-        AddEmployeePage add= new AddEmployeePage();
-        sendText(add.firstName,"Nelson123");
-        sendText(add.middleName,"MS");
-        sendText(add.lastName,"MS123");
+        sendText(addEmployeePage.firstName,"Nelson123");
+        sendText(addEmployeePage.middleName,"MS");
+        sendText(addEmployeePage.lastName,"MS123");
     }
     @When("user enters first name {string} middle name {string} and last name {string}")
     public void user_enters_first_name_middle_name_and_last_name(String firstName, String middleName, String lastName) {
-        AddEmployeePage add= new AddEmployeePage();
-        sendText(add.firstName,firstName);
-        sendText(add.middleName,middleName);
-        sendText(add.lastName,lastName);
+        sendText(addEmployeePage.firstName,firstName);
+        sendText(addEmployeePage.middleName,middleName);
+        sendText(addEmployeePage.lastName,lastName);
     }
     @When("user enter {string} {string} and {string} in the application")
     public void user_enter_and_in_the_application(String firstName, String middleName, String lastName) {
-        AddEmployeePage add= new AddEmployeePage();
-        sendText(add.firstName,firstName);
-        sendText(add.middleName,middleName);
-        sendText(add.lastName,lastName);
+        sendText(addEmployeePage.firstName,firstName);
+        sendText(addEmployeePage.middleName,middleName);
+        sendText(addEmployeePage.lastName,lastName);
     }
 
     @When("user clicks on save button option")
     public void user_clicks_on_save_button_option() {
-        AddEmployeePage add= new AddEmployeePage();
-        click(add.saveBtn);
+        click(addEmployeePage.saveBtn);
     }
     @Then("employee added successfully")
     public void employee_added_successfully() {
@@ -66,19 +60,17 @@ public class AddEmployeeSteps extends CommonMethods {
             String lastnamevalue = employeeName.get("LastName");
             System.out.println(firstnamevalue+" "+middlenamevalue+" "+lastnamevalue);
 
-            AddEmployeePage addEmployeePage=new AddEmployeePage();
             sendText(addEmployeePage.firstName,firstnamevalue);
             sendText(addEmployeePage.middleName,middlenamevalue);
             sendText(addEmployeePage.lastName,lastnamevalue);
             click(addEmployeePage.saveBtn);
 
             //assertion take it as HW
-            String actual = addEmployeePage.firstName.getText();
-            Assert.assertEquals("Values do not matches",firstnamevalue,actual );
+            //String actual = addEmployeePage.firstName.getText();
+            //Assert.assertEquals("Values do not matches",firstnamevalue,actual );
 
             Thread.sleep(2000);
-            DashBoardPage dash=new DashBoardPage();
-            click(dash.addEmployeeButton);
+            click(dashBoardPage.addEmployeeButton);
 
         }
     }
@@ -86,9 +78,6 @@ public class AddEmployeeSteps extends CommonMethods {
     @When("user adds multiple employees from excel file {string} sheet and verify they are added")
     public void user_adds_multiple_employees_from_excel_file_sheet_and_verify_they_are_added(String sheetname) {
         List<Map<String,String >> newemployees = ExcelReading.excelIntoListMap(Constants.TESTDATA_FILEPATH, sheetname);
-
-        DashBoardPage dash = new DashBoardPage();
-        AddEmployeePage addEmployeePage=new AddEmployeePage();
 
         Iterator<Map<String ,String >> it= newemployees.iterator();
         while (it.hasNext()){
@@ -100,10 +89,10 @@ public class AddEmployeeSteps extends CommonMethods {
 
             //assertion complete in HW
             //assertion complete in HW
-           // boolean actual=addEmployeePage.employeesRecordData.isDisplayed();
-            //Assert.assertTrue(actual);
-           // System.out.println("Employee full name displayed "+addEmployeePage.employeesRecordData.getText());
-            click(dash.addEmployeeButton);
+            boolean actual=employeeListPage.employeesRecordData.isDisplayed();
+            Assert.assertTrue(actual);
+            System.out.println("Employee full name displayed "+employeeListPage.employeesRecordData.getText());
+            click(dashBoardPage.addEmployeeButton);
 
         }
     }

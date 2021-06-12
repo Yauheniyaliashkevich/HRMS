@@ -16,9 +16,8 @@ public class DashboardSteps extends CommonMethods {
     public void verify_the_following_tabs_on_dashboard(DataTable dataTable) {
         List<String> expectedtabs = dataTable.asList();
 
-        DashBoardPage dash = new DashBoardPage();
         List <String> actualtabs = new ArrayList<>();
-        for (WebElement ele : dash.dashboardtabs){
+        for (WebElement ele : dashBoardPage.dashboardtabs){
             actualtabs.add(ele.getText());
         }
         System.out.println(expectedtabs);

@@ -11,13 +11,13 @@ Feature: Add Employee
     And user clicks on save button option
     Then employee added successfully
 
-    @smoke
+  @smoke
     Scenario: Adding employee from add employee page via feature file
       And user enters first name "Yulia123" middle name "MS" and last name "Yulia456"
       And user clicks on save button option
       Then employee added successfully
 
-      @example
+  @example
       Scenario Outline: Adding employee from add employee page via feature file
         And user enter "<FirstName>" "<MiddleName>" and "<LastName>" in the application
         And user clicks on save button option
@@ -38,7 +38,7 @@ Feature: Add Employee
       |Jack05051 |MSS1       |USA1     |
       |Janna123  |MS123      |USA1     |
 
-    @excel
+  @excel
     Scenario: Adding the employee from excel file
       When user adds multiple employees from excel file "newdata" sheet and verify they are added
 

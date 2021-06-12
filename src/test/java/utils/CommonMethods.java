@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class CommonMethods {
+public class CommonMethods extends PageInitializer{
 
     public static WebDriver driver;
 
