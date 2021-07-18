@@ -28,4 +28,13 @@ public class LoginPage extends CommonMethods{
         sendText(passwordBox, password);
         click(loginBtn);
     }
+
+
+    public static final String loginID="txtUsername";
+    @FindBy(id=loginID)
+    private WebElement IDLogin;
+
+    public WebElement getIDLogin(){
+        return IDLogin;
+    }
 }

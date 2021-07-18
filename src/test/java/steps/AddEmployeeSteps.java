@@ -9,6 +9,7 @@ import pages.DashBoardPage;
 import utils.CommonMethods;
 import utils.Constants;
 import utils.ExcelReading;
+import utils.GlobalVariables;
 
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +35,9 @@ public class AddEmployeeSteps extends CommonMethods {
         sendText(addEmployeePage.firstName,firstName);
         sendText(addEmployeePage.middleName,middleName);
         sendText(addEmployeePage.lastName,lastName);
+        GlobalVariables.firstName=firstName;
+        GlobalVariables.middleName=middleName;
+        GlobalVariables.lastName=lastName;
     }
     @When("user enter {string} {string} and {string} in the application")
     public void user_enter_and_in_the_application(String firstName, String middleName, String lastName) {
@@ -95,5 +99,26 @@ public class AddEmployeeSteps extends CommonMethods {
             click(dashBoardPage.addEmployeeButton);
 
         }
+    }
+
+    @When("capture the employeeId")
+    public void capture_the_employee_id() {
+        GlobalVariables.empId = addEmployeePage.employeeId.getAttribute("value");
+    }
+
+    @Then("verify the data from frontend and backend")
+    public void verify_the_data_from_frontend_and_backend() {
+        System.out.println("BackEnd");
+        System.out.println("DBFirstName "+GlobalVariables.dbFirstName);
+        System.out.println("DBMiddleName "+GlobalVariables.dbMiddleName);
+        System.out.println("DBLastName "+GlobalVariables.dbLastName);
+        System.out.println("FrontEnd");
+        System.out.println("FirstName "+GlobalVariables.firstName);
+        System.out.println("MiddleName "+GlobalVariables.middleName);
+        System.out.println("LastName "+GlobalVariables.lastName);
+        Assert.assertEquals(GlobalVariables.firstName,GlobalVariables.dbFirstName);
+        Assert.assertEquals(GlobalVariables.middleName,GlobalVariables.dbMiddleName);
+        Assert.assertEquals(GlobalVariables.lastName,GlobalVariables.dbLastName);
+
     }
 }

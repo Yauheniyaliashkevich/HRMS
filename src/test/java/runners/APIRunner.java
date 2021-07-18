@@ -1,16 +1,16 @@
 package runners;
 
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/",
+        features = "src/test/resources/features/APIWorkflow.feature",
         //glue is where we can find implementations for gherkin steps
         //we provide the path of package for steps
-        glue = "steps",
+        glue = "APISteps",
 
         //if we set dry run to true,it will quickly scan all gherkin steps are implemented or not
         //if it is true, then no actual execution happens
@@ -27,11 +27,9 @@ import org.junit.runner.RunWith;
 
         //tags will identify the scenarios based on the tags we will provide such as @smoke, @regression etc
         //we can add multiple tags in the runner class to execute scenarios belong to different tags "@smoke or/and/, @regression"
-        tags = "@title",
+        tags = "@APIWorkflow",
 
-        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json","rerun:target/failed.txt"}
+        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"}
 )
-public class SmokeRunner {
-
-
+public class APIRunner {
 }

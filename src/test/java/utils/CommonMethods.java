@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,7 +39,7 @@ public class CommonMethods extends PageInitializer{
 
         }
         driver.get(ConfigReader.getPropertiesValue("url"));
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT,TimeUnit.SECONDS);
     }
 
@@ -54,6 +55,10 @@ public class CommonMethods extends PageInitializer{
 
     public static void waitForClickability(WebElement element){
         getWait().until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void waitForVisibility(WebElement element){
+        getWait().until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void click(WebElement element){
@@ -93,5 +98,14 @@ public class CommonMethods extends PageInitializer{
         if(driver!=null){
             driver.quit();
         }
+    }
+
+    public static Actions action(){
+        Actions action= new Actions(driver);
+        return action;
+    }
+
+    public static void moveToElement(WebElement element){
+        action().moveToElement(element);
     }
 }
