@@ -10,18 +10,19 @@ public class GenerateTokenSteps {
 
     static String token;
     @Given("a JWT is generated")
-    public void a_jwt_is_generated() {
 
-            RequestSpecification generateTokenRequest = given().header("Content-type", "application/json")
-                    .body("{\n" +
-                            "  \"email\": \"liashkevichblabla123@gmail.com\",\n" +
-                            "  \"password\": \"passwordblablabla\"\n" +
-                            "}");
-            Response generateTokenResponse = generateTokenRequest.when().post(apiConstants.GENERATE_TOKEN_URI);
-            generateTokenResponse.prettyPrint();
-            token="Bearer" +generateTokenResponse.jsonPath().getString("token");
+    public void a_JWT_is_generated() {
 
+        RequestSpecification generateTokenRequest = given().header("Content-type", "application/json")
+                .body("{\n" +
+                        "   \"email\": \"workPlease@gmail.com\",\n" +
+                        "  \"password\": \"pleaseWork\"\n" +
+                        "}");
+        Response generateTokenResponse = generateTokenRequest.when().post(apiConstants.GENERATE_TOKEN_URI);
+        generateTokenResponse.prettyPrint();
 
+        token = "Bearer " + generateTokenResponse.jsonPath().getString("token");
 
     }
+
 }
