@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,8 +27,16 @@ public class CommonMethods extends PageInitializer{
         switch (ConfigReader.getPropertiesValue("browser")){
             case "chrome":
                 //System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
+
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                if(ConfigReader.getPropertiesValue("headless").equals("true")){
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.setHeadless(true);
+                    driver = new ChromeDriver(chromeOptions);
+                }else{
+                    driver = new ChromeDriver();
+                }
+
                 break;
             case "firefox":
                 //System.setProperty("webdriver.chrome.driver","drivers/пуслщdriver");
