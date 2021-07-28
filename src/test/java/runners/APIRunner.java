@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/APIGetAllEmployees.feature",
+        features = "src/test/resources/features/",
         //glue is where we can find implementations for gherkin steps
         //we provide the path of package for steps
         glue = "APISteps",
@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
 
         //tags will identify the scenarios based on the tags we will provide such as @smoke, @regression etc
         //we can add multiple tags in the runner class to execute scenarios belong to different tags "@smoke or/and/, @regression"
-        tags = "@APIRetrievingAllEmployees",
+        tags = "@Random",
 
         plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"}
 )
